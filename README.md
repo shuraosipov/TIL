@@ -29,9 +29,70 @@ IMDSv2 protecting against misconfigured-open website application firewalls, misc
 
 
 # Device Code Flow (1 of November 2021)
+Device code flow also known as device authorization grant flow, or device flow.
+
 On Microsoft identity platform you can use the OAuth 2.0 device authorization grant flow which allows users to sign in to input-constrained devices such as a browserless app, smart TV, IoT device, or printer. 
 
 To enable this flow, the device has the user visit a webpage in their browser on another device to sign in. Once the user signs in, the device is able to get access tokens and refresh tokens as needed.
+
+```
++----------+                                +----------------+
+      |          |>---(A)-- Client Identifier --->|                |
+      |          |                                |                |
+      |          |<---(B)-- Device Code,      ---<|                |
+      |          |          User Code,            |                |
+      |  Device  |          & Verification URI    |                |
+      |  Client  |                                |                |
+      |          |  [polling]                     |                |
+      |          |>---(E)-- Device Code       --->|                |
+      |          |          & Client Identifier   |                |
+      |          |                                |  Authorization |
+      |          |<---(F)-- Access Token      ---<|     Server     |
+      +----------+   (& Optional Refresh Token)   |                |
+            v                                     |                |
+            :                                     |                |
+           (C) User Code & Verification URI       |                |
+            :                                     |                |
+            v                                     |                |
+      +----------+                                |                |
+      | End User |                                |                |
+      |    at    |<---(D)-- End user reviews  --->|                |
+      |  Browser |          authorization request |                |
+      +----------+                                +----------------+
+
+                    Figure 1: Device Authorization Flow
+```
+
+The device authorization flow illustrated in Figure 1 includes the following steps:
+```
+(A)  The client requests access from the authorization server and
+        includes its client identifier in the request.
+
+(B)  The authorization server issues a device code and an end-user
+    code and provides the end-user verification URI.
+
+(C)  The client instructs the end user to use a user agent on another
+    device and visit the provided end-user verification URI.  The
+    client provides the user with the end-user code to enter in
+    order to review the authorization request.
+
+(D)  The authorization server authenticates the end user (via the
+    user agent), and prompts the user to input the user code
+    provided by the device client.  The authorization server
+    validates the user code provided by the user, and prompts the
+    user to accept or decline the request.
+
+(E)  While the end user reviews the client's request (step D), the
+    client repeatedly polls the authorization server to find out if
+    the user completed the user authorization step.  The client
+    includes the device code and its client identifier.
+
+(F)  The authorization server validates the device code provided by
+    the client and responds with the access token if the client is
+    granted access, an error if they are denied access, or an
+    indication that the client should continue to poll.
+```
+
 
 ## What I learned
 You can use the Microsoft Authentication Library (MSAL) to acquire tokens from the Microsoft identity platform to authenticate users and access secured web APIs.
