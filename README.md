@@ -1,6 +1,31 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# Instance Metadata Service Version 2 (IMDSv2) protocol for the EC2 instances (2 of November 2021)
+IMDSv2 is session-based and requires you to authenticate requests to the instance metadata by using token. The token is a logical representation of a session. You will need to include the token in all GET requests to the instance metadata service.
+You can generate a session token via PUT reqest to the token API. Token is instance-bound, i.e. it will work only from instance you generate it. Token TTL is vary from 1 sec to 6 hours. When token expires you must get another one (create a new session).
+
+You can generate a token using the following command.
+```
+TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
+```
+
+Then, use the token to generate top-level metadata items using the following command.
+```
+curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/
+```
+
+## What I learned
+The metadata service was designed to be accessible only from within the instance. However, there is no additional access control to prevent unauthorized access from a compromised application running on the EC2 instance itself.
+
+IMDSv2 protecting against misconfigured-open website application firewalls, misconfigured-open reverse proxies, unpatched SSRF vulnerabilities, and misconfigured-open layer-3 firewalls and network address translation.
+
+
+
+## Links
+- https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html
+- https://www.youtube.com/watch?v=2B5bhZzayjI&ab_channel=AWSEvents
 
 
 # Device Code Flow (1 of November 2021)
