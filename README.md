@@ -1,6 +1,17 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# AWS Prescriptive Guidance (3 of November 2021)
+Amazon Web Services (AWS) Prescriptive Guidance provides time-tested strategies, guides, and patterns to help accelerate your cloud migration, modernization, and optimization projects. These resources were developed by AWS technology experts and the global community of AWS Partners, based on their years of experience helping customers realize their business objectives on AWS.
+
+https://aws.amazon.com/prescriptive-guidance
+
+
+## What I learned
+I was pleasantly surprised today when I found this resource - https://aws.amazon.com/prescriptive-guidance
+I use https://aws.amazon.com/architecture/ and https://aws.amazon.com/solutions/ a lot, but this one was something new for me :clown_face:
+
+
 # Instance Metadata Service Version 2 (IMDSv2) protocol for the EC2 instances (2 of November 2021)
 IMDSv2 is session-based and requires you to authenticate requests to the instance metadata by using token. The token is a logical representation of a session. You will need to include the token in all GET requests to the instance metadata service.
 You can generate a session token via PUT reqest to the token API. Token is instance-bound, i.e. it will work only from instance you generate it. Token TTL is vary from 1 sec to 6 hours. When token expires you must get another one (create a new session).
@@ -134,7 +145,7 @@ Today, we discovered that downstream environments stopped responding. After some
 Undo tablespace has retention period as well, which by default is 48 hours.
 
 ## Links
-https://docs.oracle.com/cd/E11882_01/server.112/e25494/undo.htm#ADMIN11460
+- https://docs.oracle.com/cd/E11882_01/server.112/e25494/undo.htm#ADMIN11460
 
 
 
