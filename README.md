@@ -1,6 +1,37 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# AWS Lambda Extensions (4 of November 2021)
+An AWS Lambda extension is a companion process that augments the capabilities of a Lambda function. An extension can start before a function is invoked, run in parallel with a function, and continue to run after a function invocation is processed. In essence, a Lambda extension is like a client that runs in parallel to a Lambda invocation. This parallel client can interface with your function at any point during its lifecycle.
+
+You can use Lambda extensions to augment your Lambda functions. For example, use Lambda extensions to integrate functions with your preferred monitoring, observability, security, and governance tools. You can choose from a broad set of tools that AWS Lambda Partners provides, or you can create your own Lambda extensions.
+
+Lambda supports external and internal extensions. An external extension runs as an independent process in the execution environment and continues to run after the function invocation is fully processed. Because extensions run as separate processes, you can write them in a different language than the function.
+
+As an example - "HashiCorp Vault allows you to secure, store, and tightly control access to your application’s secrets and sensitive data. With the Vault extension, you can now authenticate and securely retrieve dynamic secrets before your Lambda function invokes."
+
+## What I learned
+Extentions accessed by Lambda function similar to Lambda Layers.
+
+AWS AppConfig has an available extension for .zip archive functions. This gives Lambda functions access to external configuration settings quickly and easily. **The extension runs a separate local process to retrieve and cache configuration data from the AWS AppConfig service. The function code can then fetch configuration data faster using a local call rather than over the network.**
+
+You can deploy application configuration to multiple lambda functions by updating the extention (AppConfig for example), so you do not need to redeploy Lambda to apply a new settings.
+
+Extensions share the same permissions as Lambda functions.
+
+Extention can make calls to external/internal services and store response in a local cache so that Lambda will work with a local copy rather than making a call to remote services themself.
+
+
+## Links
+- https://aws.amazon.com/blogs/compute/introducing-aws-lambda-extensions-in-preview/
+- https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html#using-extensions-reg
+- https://github.com/aws-samples/aws-lambda-extensions
+- https://aws.amazon.com/blogs/mt/introducing-aws-appconfig-lambda-extension-deploying-application-configuration-s
+erverless/
+- https://aws.amazon.com/systems-manager/features/appconfig
+- https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-integration-lambda-extensions.html
+
+
 # AWS Prescriptive Guidance (3 of November 2021)
 Amazon Web Services (AWS) Prescriptive Guidance provides time-tested strategies, guides, and patterns to help accelerate your cloud migration, modernization, and optimization projects. These resources were developed by AWS technology experts and the global community of AWS Partners, based on their years of experience helping customers realize their business objectives on AWS.
 
