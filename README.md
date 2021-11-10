@@ -1,6 +1,21 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# How to validate database data after a migration (10 of November 2021)
+A customer is looking for a way to validate the data after the migration. They are replicating their production databases. Before doing the cutover, they want to have high confidence in their migration by comparing the data between the source and target.
+
+The customer uses continuous replication to replicate data into different databases (for example, Oracle to PostgreSQL). Because it is their production system, they want to ensure that the data is being migrated without any loss or corruption.
+
+## What I learned
+To validate the replicated data, AWS DMS **compares the data between the source and target to ensure that the data is the same**. The tool **makes appropriate queries to the source and target to retrieve the data**. If the data volume is large, AWS DMS also adopts a strategy to **split the data into smaller manageable units and compare them**. AWS DMS splits the table into multiple smaller groups of contiguous rows based on the primary key. The tool then **compares the data at the partition level** and exposes results of the final comparison. This partitioning approach helps AWS DMS compare a predefined amount of data at any point in time.
+
+## Links
+- Blog: Migration Validation (Part 1) – Introducing Migration Assessment in AWS Database Migration Service: https://aws.amazon.com/blogs/database/migration-validation-part-1-introducing-migration-assessment-in-aws-database-migration-service/
+
+- Blog: Migration Validation (Part 2) – Introducing Data Validation in AWS Database Migration Service: https://aws.amazon.com/blogs/database/migration-validation-part-2-introducing-data-validation-in-aws-data-migration-service/
+
+- Blog: Validating Database Objects After Migration Using AWS SCT and AWS DMS: https://aws.amazon.com/blogs/database/validating-database-objects-after-migration-using-aws-sct-and-aws-dms/
+
 # AWS Lambda Extensions (4 of November 2021)
 An AWS Lambda extension is a companion process that augments the capabilities of a Lambda function. An extension can start before a function is invoked, run in parallel with a function, and continue to run after a function invocation is processed. In essence, a Lambda extension is like a client that runs in parallel to a Lambda invocation. This parallel client can interface with your function at any point during its lifecycle.
 
