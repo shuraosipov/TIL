@@ -1,6 +1,14 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [Serverless] Serverless Land (11 of November 2021)
+An entire website from AWS dedicated to Serverless.
+This site brings together all the latest blogs, videos, and training for AWS Serverless. Learn to use and build apps that scale automatically on low-cost, fully-managed serverless architecture.
+
+# Links
+- https://serverlessland.com/
+
+
 # [Lambda Best Practices] Separate the Lambda handler from your core logic (11 of November 2021)
 
 While reading AWS Lambda best practices [0], I always ask myself why separate the Lambda handler from the core logic?
