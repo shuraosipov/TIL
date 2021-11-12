@@ -1,7 +1,105 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
-# How to validate database data after a migration (10 of November 2021)
+# [Lambda Best Practices] Separate the Lambda handler from your core logic (11 of November 2021)
+
+While reading AWS Lambda best practices [0], I always ask myself why separate the Lambda handler from the core logic?
+How does this affect the function performance, and why is it so important (so Amazon put this as a first item in the best practices section)?
+
+Trying to answer that question I encountered different explanations like "This allows you to make a more unit-testable function", or "It is recommended to separate core logic from the Lambda handler, as the handler is generally used as an entry point to the function", or "This would also ease migrating your solution to any other platform if you need to". But still, I did not fully understand why.
+
+To answer that question, I decided to understand Lambda's execution environment first. So, here is what I found.
+According to the official documentation [1], the Lambda execution environment lifecycle [2] comprises three phases - Init, Invoke, and Shutdown. During the Init phase, Lambda creates or unfreezes an execution environment with the configured resources, downloads the code for the function and all layers, initializes any extensions, initializes the runtime, **and then runs the function's initialization code (the code outside the main handler).** The Init phase happens either during the first invocation or in advance of function invocations if you have enabled provisioned concurrency. 
+Aha! So, translating this to plain English, it means that our code is pre-loaded and can be re-used by next function invocation.  
+
+**During Invoke phase, Lambda invokes the function handler**. After the function runs to completion, Lambda prepares to handle another function invocation.
+
+So, let's see how it works in practice. To do so, we will have two lambda functions, where the first function will have all code in the handler, and in the second, we will move function logic outside of the handler.
+
+`Function A`
+```
+import json
+import urllib.parse
+import boto3
+
+def lambda_handler(event, context):
+    s3 = boto3.client('s3')
+    
+    def download_file(bucket, key, out_file):
+        s3.download_file(bucket, key, out_file)
+    
+    def read_file(file):
+        with open(file, 'r') as f:
+            print(f.read())
+
+    bucket = 'shuraosipov-content'
+    key = 'sample_file.txt'
+    out_file = '/tmp/sample_file.txt'
+    
+    download_file(bucket, key, out_file)
+    read_file(out_file)
+```
+
+`Function B`
+```
+import json
+import urllib.parse
+import boto3
+
+s3 = boto3.client('s3')
+
+def download_file(bucket, key, out_file):
+    s3.download_file(bucket, key, out_file)
+    
+def read_file(file):
+    with open(file, 'r') as f:
+        print(f.read())
+
+def lambda_handler(event, context):
+    
+    bucket = 'shuraosipov-content'
+    key = 'sample_file.txt'
+    out_file = '/tmp/sample_file.txt'
+    
+    download_file(bucket, key, out_file)
+    read_file(out_file)
+```
+
+Running both functions five times, I got the following results - in the first case, an initialization took 1954 ms, and further executions was around 350 ms. And in the second case, an initialization took about 320 ms, and further executions were completed in 120 ms.
+
+`Function A`
+```
+Duration: 1954.15 ms	Billed Duration: 1955 ms	Memory Size: 128 MB	Max Memory Used: 73 MB	Init Duration: 332.99 ms
+
+Duration: 350.79 ms	Billed Duration: 351 ms	Memory Size: 128 MB	Max Memory Used: 74 MB
+
+Duration: 362.99 ms	Billed Duration: 363 ms	Memory Size: 128 MB	Max Memory Used: 74 MB
+
+Duration: 356.27 ms	Billed Duration: 357 ms	Memory Size: 128 MB	Max Memory Used: 75 MB
+
+Duration: 369.31 ms	Billed Duration: 370 ms	Memory Size: 128 MB	Max Memory Used: 75 MB
+```
+
+`Function B`
+```
+
+Duration: 321.61 ms	Billed Duration: 322 ms	Memory Size: 128 MB	Max Memory Used: 73 MB	Init Duration: 424.98 ms
+
+Duration: 120.31 ms	Billed Duration: 121 ms	Memory Size: 128 MB	Max Memory Used: 73 MB
+
+Duration: 129.14 ms	Billed Duration: 130 ms	Memory Size: 128 MB	Max Memory Used: 74 MB
+
+Duration: 115.57 ms	Billed Duration: 116 ms	Memory Size: 128 MB	Max Memory Used: 74 MB
+
+Duration: 110.96 ms	Billed Duration: 111 ms	Memory Size: 128 MB	Max Memory Used: 75 MB
+```
+
+## Links
+[0] - https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html#function-code\
+[1] - https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\
+[2] - Lambda invokes your function in an execution environment, which provides a secure and isolated runtime environment. The execution environment manages the resources required to run your function. The execution environment also provides lifecycle support for the function's runtime and any external extensions associated with your function.
+
+# [ Databases ] How to validate data after a migration (10 of November 2021)
 A customer is looking for a way to validate the data after the migration. They are replicating their production databases. Before doing the cutover, they want to have high confidence in their migration by comparing the data between the source and target.
 
 The customer uses continuous replication to replicate data into different databases (for example, Oracle to PostgreSQL). Because it is their production system, they want to ensure that the data is being migrated without any loss or corruption.
