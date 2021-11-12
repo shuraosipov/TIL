@@ -66,6 +66,7 @@ def lambda_handler(event, context):
 ```
 
 Running both functions five times, I got the following results - in the first case, an initialization took 1954 ms, and further executions was around 350 ms. And in the second case, an initialization took about 320 ms, and further executions were completed in 120 ms.
+5.5 times difference for the initialization, and 2.6 times difference for consecutive runs. Looks solid!
 
 `Function A`
 ```
