@@ -96,9 +96,9 @@ Duration: 110.96 ms	Billed Duration: 111 ms	Memory Size: 128 MB	Max Memory Used:
 ```
 
 ## Links
-[0] - https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html#function-code\
-[1] - https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\
-[2] - Lambda invokes your function in an execution environment, which provides a secure and isolated runtime environment. The execution environment manages the resources required to run your function. The execution environment also provides lifecycle support for the function's runtime and any external extensions associated with your function.
+- [0] - https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html#function-code
+- [1] - https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html
+- [2] - Lambda invokes your function in an execution environment, which provides a secure and isolated runtime environment. The execution environment manages the resources required to run your function. The execution environment also provides lifecycle support for the function's runtime and any external extensions associated with your function.
 
 # [ Databases ] How to validate data after a migration (10 of November 2021)
 A customer is looking for a way to validate the data after the migration. They are replicating their production databases. Before doing the cutover, they want to have high confidence in their migration by comparing the data between the source and target.
