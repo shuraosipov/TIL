@@ -7,6 +7,7 @@ This site brings together all the latest blogs, videos, and training for AWS Ser
 
 # Links
 - https://serverlessland.com/
+- https://serverlessland.com/patterns 
 
 
 # [Lambda Best Practices] Separate the Lambda handler from your core logic (11 of November 2021)
