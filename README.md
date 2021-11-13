@@ -1,6 +1,42 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [AI] ruDALL-E Malevich (12 of November 2021)
+Новая нейросоеть ruDALL-E. Самая большая вычислительная задача в истории России
+На кластере Christofari модель обучалась 37 дней на 512 GPU TESLA V100, и затем еще 11 дней по 128 GPU — всего 20352 GPU-дней. Наша самая большая обученная модель XXL (12 миллиардов параметров) сравнима с английской DALL-E от OpenAI!
+
+Параметры обучения и модели:
+
+- 1,3 млрд параметров
+- Энкодер изображений — кастомная VQGAN модель, преобразующая картинку в последовательность из 32×32 символов
+- YTTM токенизатор текстов со словарем 16000 токенов
+- Специализированные маски attention для визуальных последовательностей
+- Поддержка переранжирования результатов моделью ruCLIP
+- Поддержка поднятия разрешения с помощью модели RealESRGAN
+
+Генерация без капчи доступна в телеграм-боте @sber_rudalle_xl_bot
+
+## Примеры
+```
+Изображение сгенерировано моделью ruDALL-E от Сбера по запросу "космос восход земля куалькуа древние победа"
+```
+![ruDALL-E-1](images/ruDALL-E-1.jpg)
+
+```
+Изображение сгенерировано моделью ruDALL-E от Сбера по запросу "Зима Морозко снег метель дед мороз новый год Сыктывкар"
+```
+![ruDALL-E-2](images/ruDALL-E-2.jpg)
+
+```
+Изображение сгенерировано моделью ruDALL-E от Сбера по запросу "lego человечек"
+```
+![ruDALL-E-3](images/ruDALL-E-3.jpg)
+
+## Ссылки
+- https://rudalle.ru/
+- Генерация без капчи доступна в телеграм-боте @sber_rudalle_xl_bot
+
+
 # [Serverless] Serverless Land (11 of November 2021)
 An entire website from AWS dedicated to Serverless.
 This site brings together all the latest blogs, videos, and training for AWS Serverless. Learn to use and build apps that scale automatically on low-cost, fully-managed serverless architecture.
