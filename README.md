@@ -191,6 +191,7 @@ erverless/
 - https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-integration-lambda-extensions.html
 - https://aws.amazon.com/blogs/aws/getting-started-with-using-your-favorite-operational-tools-on-aws-lambda-extensions-are-now-generally-available
 - https://www.youtube.com/playlist?list=PLJo-rJlep0ECO8od7NRdfJ4OrnQ7TMAwj
+- https://serverlessland.com/learn/lambda-extensions
 
 
 # AWS Prescriptive Guidance (3 of November 2021)
