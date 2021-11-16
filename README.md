@@ -1,6 +1,39 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [ML] - Amazon Aurora Machine Learning (15 of November 2021)
+Amazon Aurora machine learning enables you to add ML-based predictions to applications via the familiar SQL programming language, so you don't need to learn separate tools or have prior machine learning experience. It provides simple, optimized, and secure integration between Aurora and AWS ML services without having to build custom integrations or move data around.
+
+When you run an ML query, Aurora calls Amazon SageMaker for a wide variety of ML algorithms or Amazon Comprehend for sentiment analysis, so your application doesn't need to call these services directly. This makes Aurora machine learning suitable for low-latency, real-time use cases such as fraud detection, ad targeting, and product recommendations. **For example, you can build product recommendation systems by writing SQL queries in Aurora that pass customer profile, shopping history, and product catalog data to a SageMaker model, and get product recommendations returned as query results.**
+
+## What I learned
+- Aurora exposes ML models as SQL functions, allowing you to use standard SQL to build applications that call ML models, pass data to them, and return predictions as query results.
+- Aurora integrates directly with SageMaker and Comprehend, reducing the network delay. ML training and inferencing happen in SageMaker and Comprehend, so there is no performance impact on Aurora.
+
+
+Use cases:
+- Product recommendations
+- Sentiment analysis
+- Fraud detection
+
+
+To detect the sentiment of the comments in my table, I can use the aws_comprehend_detect_sentiment and aws_comprehend_detect_sentiment_confidence SQL functions (Aurora machine learning provides two built-in Amazon Comprehend functions):
+```
+SELECT comment_text,
+       aws_comprehend_detect_sentiment(comment_text, 'en') AS sentiment,
+       aws_comprehend_detect_sentiment_confidence(comment_text, 'en') AS confidence
+  FROM comments;
+```
+
+## Links
+- https://aws.amazon.com/rds/aurora/machine-learning/
+- https://aws.amazon.com/blogs/aws/new-for-amazon-aurora-use-machine-learning-directly-from-your-databases/
+- https://awsauroralabsmy.com/ml/comprehend/
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/mysql-ml.html
+
+
+
+
 # [AI] ruDALL-E Malevich (12 of November 2021)
 Новая нейросоеть ruDALL-E. Самая большая вычислительная задача в истории России
 На кластере Christofari модель обучалась 37 дней на 512 GPU TESLA V100, и затем еще 11 дней по 128 GPU — всего 20352 GPU-дней. Наша самая большая обученная модель XXL (12 миллиардов параметров) сравнима с английской DALL-E от OpenAI!
