@@ -1,6 +1,66 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [DB] Aurora Database Activity Streams (16 of November 2021)
+Database activity streams provide a near-real-time stream of activity in your database, help with monitoring and compliance, and are a free feature of Aurora. Amazon Aurora pushes activities to an Amazon Kinesis data stream. The Kinesis stream is created automatically. From Kinesis, you can configure AWS services such as Amazon Kinesis Data Firehose and AWS Lambda to consume the stream and store the data.
+
+Solutions built on top of Database Activity Streams can protect your database from internal and external threats. The collection, transmission, storage, and processing of database activity is managed outside your database, providing access control independent of your database users and admins. Your database activity is asynchronously pushed to an encrypted Amazon Kinesis data stream provisioned on behalf of your Aurora cluster.
+
+## What I learned
+Example Activity event record of an Aurora PostgreSQL SELECT statement:
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents": 
+    {
+      "type":"DatabaseActivityMonitoringRecord",
+      "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
+      "instanceId":"db-FZJTMYKCXQBUUZ6VLU7NW3ITCM",
+      "databaseActivityEventList":[
+        {
+          "startTime": "2019-05-24 00:39:49.920564+00",
+          "logTime": "2019-05-24 00:39:49.940668+00",
+          "statementId": 6,
+          "substatementId": 1,
+          "objectType": "TABLE",
+          "command": "SELECT",
+          "objectName": "public.my_table",
+          "databaseName": "postgres",
+          "dbUserName": "rdsadmin",
+          "remoteHost": "172.31.3.195",
+          "remotePort": "34534",
+          "sessionId": "5ce73c6f.7e64",
+          "rowCount": 10,
+          "commandText": "select * from my_table;",
+          "paramList": [],
+          "pid": 32356,
+          "clientApplication": "psql",
+          "exitCode": null,
+          "class": "READ",
+          "serverVersion": "2.3.1",
+          "serverType": "PostgreSQL",
+          "serviceName": "Amazon Aurora PostgreSQL-Compatible edition",
+          "serverHost": "172.31.3.192",
+          "netProtocol": "TCP",
+          "dbProtocol": "Postgres 3.0",
+          "type": "record",
+          "errorMessage": null
+        }
+      ]
+    },
+   "key":"decryption-key"
+}
+```
+
+
+## Links
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.Overview.html
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.Monitoring.html
+- https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html
+- https://aws.amazon.com/blogs/database/filter-amazon-aurora-database-activity-stream-data-for-segregation-and-monitoring/
+
+
 # [ML] - Amazon Aurora Machine Learning (15 of November 2021)
 Amazon Aurora machine learning enables you to add ML-based predictions to applications via the familiar SQL programming language, so you don't need to learn separate tools or have prior machine learning experience. It provides simple, optimized, and secure integration between Aurora and AWS ML services without having to build custom integrations or move data around.
 
