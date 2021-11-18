@@ -1,6 +1,31 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# pebibyte (17 of November 2021)
+A pebibyte (PiB) is a unit of data storage that equals 2 to the 50th power, or 1,125,899,906,842,624 bytes.
+
+While a petabyte can be estimated as 10^15 or 1,000,000,000,000,000 bytes, a pebibyte is exactly 1,125,899,906,842,624 bytes. This is to avoid the ambiguity associated with the size of petabytes. A pebibyte is 1,024 tebibytes and precedes the exbibyte unit of measurement.
+
+```
+1 petabyte (10¹⁵ bytes) [PB] = 0.888178419700128 pebibyte [PiB]
+```
+
+## What I learned
+Both decimal and binary systems are used to express capacity in computer systems. The binary system measures a kilobyte as 1,024 bytes, whereas the decimal system measures a kilobyte as an even 1,000 bytes. The range between the two gets even more notable when you bump it up to gigabytes: the binary value comes out to 1,073,741,824 bytes, compared to 1,000,000,000 bytes in decimal.
+
+Companies making data-storage products tend to use the decimal system to indicate capacity and often put small disclaimers on product pages that say so, like “One gigabyte (GB) = one billion bytes. One terabyte (TB) = one trillion bytes. Total accessible capacity varies depending on operating environment.”
+
+The National Institute of Standard and Technology has a reference page for referring to binary multiples. NIST uses notation like 1 GiB (gibibyte) to refer to a binary gigabyte, while 1 GB (gigabyte) is used for the decimal system.
+
+
+## Links
+- https://techterms.com/definition/pebibyte
+- https://simple.wikipedia.org/wiki/Pebibyte
+- https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#pebibyte
+- https://gadgetwise.blogs.nytimes.com/2009/07/06/q-a-decimal-and-binary-measure-vs-measure/
+- https://physics.nist.gov/cuu/Units/binary.html
+
+
 # [DB] Aurora Database Activity Streams (16 of November 2021)
 Database activity streams provide a near-real-time stream of activity in your database, help with monitoring and compliance, and are a free feature of Aurora. Amazon Aurora pushes activities to an Amazon Kinesis data stream. The Kinesis stream is created automatically. From Kinesis, you can configure AWS services such as Amazon Kinesis Data Firehose and AWS Lambda to consume the stream and store the data.
 
