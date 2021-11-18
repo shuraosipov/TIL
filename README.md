@@ -1,6 +1,24 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [DB] SELECT INTO OUTFILE S3 (17 of November 2021)
+You can use the SELECT INTO OUTFILE S3 statement to query data from an Amazon Aurora MySQL DB cluster and save it directly into text files stored in an Amazon S3 bucket. You can use this functionality to skip bringing the data down to the client first, and then copying it from the client to Amazon S3. The LOAD DATA FROM S3 statement can use the files created by this statement to load data into an Aurora DB cluster.
+
+Currently, not available for Aurora Serverless clusters.
+
+Example.
+The following statement selects all of the data in the employees table and saves the data into an Amazon S3 bucket that is in a different region from the Aurora DB cluster. The statement creates data files in which each field is terminated by a comma (,) character and each row is terminated by a newline (\n) character. The statement overwrites any existing files that match the sample_employee_data file prefix in the specified Amazon S3 bucket.
+```
+SELECT * FROM employees INTO OUTFILE S3 's3-us-west-2://aurora-select-into-s3-pdx/sample_employee_data'
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    OVERWRITE ON;
+```
+
+## Links
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.SaveIntoS3.html
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html
+
 # pebibyte (17 of November 2021)
 A pebibyte (PiB) is a unit of data storage that equals 2 to the 50th power, or 1,125,899,906,842,624 bytes.
 
