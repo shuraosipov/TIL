@@ -20,8 +20,30 @@ could be represented in Newick format in several ways:
 (A:0.1,B:0.2,(C:0.3,D:0.4)E:0.5)F;     distances and all names
 ((B:0.2,(C:0.3,D:0.4)E:0.5)F:0.1)A;    a tree rooted on a leaf node (rare)
 ```
+The grammar nodes:
+```
+Tree: The full input Newick Format for a single tree
+Subtree: an internal node (and its descendants) or a leaf node
+Leaf: a node with no descendants
+Internal: a node and its one or more descendants
+BranchSet: a set of one or more Branches
+Branch: a tree edge and its descendant subtree.
+Name: the name of a node
+Length: the length of a tree edge.
+```
 
-
+The grammar rules:
+Note, "|" separates alternatives.
+```
+Tree → Subtree ";"
+Subtree → Leaf | Internal
+Leaf → Name
+Internal → "(" BranchSet ")" Name
+BranchSet → Branch | Branch "," BranchSet
+Branch → Subtree Length
+Name → empty | string
+Length → empty | ":" number
+```
 
 ## Links
 - https://github.com/dlce-eva/python-newick
