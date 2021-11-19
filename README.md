@@ -1,6 +1,99 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [DB] PartiQL (19 of November 2021)
+PartiQL provides SQL-compatible query access across multiple data stores containing structured data, semistructured data, and nested data. It is widely used within Amazon and is now available as part of many AWS services, including DynamoDB.
+
+### First Class Nested Data
+PartiQL’s extensions to SQL are easy to understand, treat nested data as first class citizens and compose seamlessly with each other and SQL. This enables intuitive filtering, joining and aggregation on the combination of structured, semistructured and nested datasets.
+
+### Data Storage Independence
+PartiQL enables unified query access across multiple data stores and data formats by separating the syntax and semantics of a query from the underlying format of the data or the data store that is being accessed. It enables users to interact with data with or without regular schema.
+
+### Open Source
+PartiQL syntax, semantics, the embeddable reference interpreter, CLI, test framework, and tests are licensed under the Apache License, version 2.0, allowing you to freely use, copy, and distribute your changes under the terms of your choice.
+
+
+
+An example query from AWS DynamoDB Console:
+```
+select * from monsters;
+```
+
+Result in a tabular form:
+```
+"superpower","image","id","description","name","class"
+"resurrection","https://img.icons8.com/cute-clipart/64/000000/angel.png","2","With their great offensive and defensive power and flying ability, angels and archangels are among the mightiest creatures in the game.","Michael","archangel"
+"immortality","https://img.icons8.com/color/48/000000/lucifer.png","1","A devil is the personification of evil as it is conceived in many and various cultures and religious traditions. It is seen as the objectification of a hostile and destructive force.","Lucifer","Devil"
+```
+
+Result in JSON:
+```
+"Items": [
+    2 items
+    0: {
+        6 items
+    "superpower": {
+            1 item
+    "S": "resurrection"
+        }
+    "image": {
+            1 item
+    "S": "https://img.icons8.com/cute-clipart/64/000000/angel.png"
+        }
+    "id": {
+            1 item
+    "N": "2"
+        }
+    "description": {
+            1 item
+    "S": "With their great offensive and defensive power and flying ability, angels and archangels are among the mightiest creatures in the game."
+        }
+    "name": {
+            1 item
+    "S": "Michael"
+        }
+    "class": {
+            1 item
+    "S": "archangel"
+        }
+    }
+    1: {
+        6 items
+    "superpower": {
+            1 item
+    "S": "immortality"
+        }
+    "image": {
+            1 item
+    "S": "https://img.icons8.com/color/48/000000/lucifer.png"
+        }
+    "id": {
+            1 item
+    "N": "1"
+        }
+    "description": {
+            1 item
+    "S": "A devil is the personification of evil as it is conceived in many and various cultures and religious traditions. It is seen as the objectification of a hostile and destructive force."
+        }
+    "name": {
+            1 item
+    "S": "Lucifer"
+        }
+    "class": {
+            1 item
+    "S": "Devil"
+        }
+    }
+]
+```
+
+## Links
+- https://partiql.org/docs.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.html#ql-reference.what-is
+- https://console.aws.amazon.com/dynamodbv2/home?region=us-east-1#partiql-editor
+
+
 # Newick format (18 of November 2021)
 In mathematics, Newick tree format (or Newick notation or New Hampshire tree format) is a way of representing graph-theoretical trees with edge lengths using parentheses and commas.
 
