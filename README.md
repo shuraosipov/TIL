@@ -1,6 +1,32 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# Newick format (18 of November 2021)
+In mathematics, Newick tree format (or Newick notation or New Hampshire tree format) is a way of representing graph-theoretical trees with edge lengths using parentheses and commas.
+
+Newick format is typically used for tools like PHYLIP and is a minimal definition for a phylogenetic tree.
+
+The following tree:
+![tree](images/tree.PNG)
+
+could be represented in Newick format in several ways:
+```
+(,,(,));                               no nodes are named
+(A,B,(C,D));                           leaf nodes are named
+(A,B,(C,D)E)F;                         all nodes are named
+(:0.1,:0.2,(:0.3,:0.4):0.5);           all but root node have a distance to parent
+(:0.1,:0.2,(:0.3,:0.4):0.5):0.0;       all have a distance to parent
+(A:0.1,B:0.2,(C:0.3,D:0.4):0.5);       distances and leaf names (popular)
+(A:0.1,B:0.2,(C:0.3,D:0.4)E:0.5)F;     distances and all names
+((B:0.2,(C:0.3,D:0.4)E:0.5)F:0.1)A;    a tree rooted on a leaf node (rare)
+```
+
+
+
+## Links
+- https://github.com/dlce-eva/python-newick
+- https://en.wikipedia.org/wiki/Newick_format
+
 # [DB] SELECT INTO OUTFILE S3 (17 of November 2021)
 You can use the SELECT INTO OUTFILE S3 statement to query data from an Amazon Aurora MySQL DB cluster and save it directly into text files stored in an Amazon S3 bucket. You can use this functionality to skip bringing the data down to the client first, and then copying it from the client to Amazon S3. The LOAD DATA FROM S3 statement can use the files created by this statement to load data into an Aurora DB cluster.
 
