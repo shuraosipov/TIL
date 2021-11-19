@@ -3,6 +3,8 @@ Today I Learned - a repository of things I learned today, with links and example
 
 # [DB] PartiQL (19 of November 2021)
 PartiQL provides SQL-compatible query access across multiple data stores containing structured data, semistructured data, and nested data. It is widely used within Amazon and is now available as part of many AWS services, including DynamoDB.
+![PartiQL](images/PartiQL.jpg)
+
 
 ### First Class Nested Data
 PartiQL’s extensions to SQL are easy to understand, treat nested data as first class citizens and compose seamlessly with each other and SQL. This enables intuitive filtering, joining and aggregation on the combination of structured, semistructured and nested datasets.
