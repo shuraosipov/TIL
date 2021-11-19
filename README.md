@@ -45,6 +45,21 @@ Name → empty | string
 Length → empty | ":" number
 ```
 
+Using pyton:
+```
+import newick
+tree = newick.loads('(A:0.1,B:0.2,(C:0.3,D:0.4)E:0.5)F')[0]
+print(tree.ascii_art())
+```
+You will get the following output:
+```
+    ┌─A
+──F─┼─B
+    │   ┌─C
+    └─E─┤
+        └─D
+```
+
 ## Links
 - https://github.com/dlce-eva/python-newick
 - https://en.wikipedia.org/wiki/Newick_format
