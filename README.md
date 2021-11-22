@@ -1,6 +1,39 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [DB] Sorting with timestamps in DynamoDB (21 of November 2021)
+
+ISO 8601 is an international standard for representing dates and times. The general-to-specific model that separates it from other standard time layouts makes it extremely easy to specify any time range for queries.
+
+Current date and time expressed according to ISO 8601:
+```
+Date - 2021-11-21
+Date and time in UTC - 2021-11-21T23:04:54Z
+
+```
+
+In DynamoDB you can use the string data type to represent a date or a timestamp. One way to do this is by using ISO 8601 strings, as shown in these examples:
+```
+2016-02-15
+
+2015-12-21T17:42:34Z
+
+20150311T122706Z
+```
+
+* Want data from 2021? Just look for strings starting with 2019
+* Want data from Nov 2021? Just look for strings starting with 2021-11
+* Want data from Nov 21, 2021? Just look for strings with 2021–11–21.
+
+## Links
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes.String
+- https://en.wikipedia.org/wiki/ISO_8601
+- https://www.youtube.com/watch?v=0uLF1tjI_BI&list=PL_EDAAla3DXWshFxx1R5P5MNaER84zHsU&index=6&ab_channel=AWSEvents
+- https://medium.com/cloud-native-the-gathering/querying-dynamodb-by-date-range-899b751a6ef2
+
+
+
+
 # [DB] PartiQL (19 of November 2021)
 PartiQL provides SQL-compatible query access across multiple data stores containing structured data, semistructured data, and nested data. It is widely used within Amazon and is now available as part of many AWS services, including DynamoDB.
 
