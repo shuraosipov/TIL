@@ -9,6 +9,7 @@ This guide presents a data modeling process for using DynamoDB that provides fun
 ## Links
 - https://docs.aws.amazon.com/prescriptive-guidance/latest/dynamodb-data-modeling/welcome.html
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html
+- https://www.youtube.com/watch?v=mcZwJQ7O8iw&ab_channel=AmazonWebServices
 
 
 
