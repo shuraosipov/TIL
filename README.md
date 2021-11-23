@@ -1,6 +1,17 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [DB Modeling data with Amazon DynamoDB (22 of November 2021)
+This guide presents a data modeling process for using DynamoDB that provides functional requirements, performance, and effective costs. The guide is for database engineers who are planning to use DynamoDB as the operational database for their applications that are running on AWS. AWS Professional Services has used the recommended process to help enterprise companies with DynamoDB data modeling for different use cases and workloads.
+
+![process_flow](images/process_flow.PNG)
+
+## Links
+- https://docs.aws.amazon.com/prescriptive-guidance/latest/dynamodb-data-modeling/welcome.html
+
+
+
+
 
 # [DB] Connection Handling in Aurora MySQL vs. MySQL (22 of November 2021)
 MySQL Community Edition manages connections in a one-thread-perconnection fashion. This means that each individual user connection receives a dedicated operating system thread in the mysqld process. Issues with this type of connection handling include:
