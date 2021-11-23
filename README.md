@@ -1,6 +1,28 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+
+# [DB] Connection Handling in Aurora MySQL vs. MySQL (22 of November 2021)
+MySQL Community Edition manages connections in a one-thread-perconnection fashion. This means that each individual user connection receives a dedicated operating system thread in the mysqld process. Issues with this type of connection handling include:
+* Relatively high memory use when there is a large number of user connections, even if the connections are completely idle
+* Higher internal server contention and context switching overhead when working with thousands of user connections
+
+Aurora MySQL supports a thread pool approach that addresses these issues.
+You can characterize the thread pool approach as follows:
+* **It uses thread multiplexing, where a number of worker threads can
+switch between user sessions (connections)**. A worker thread is not fixed or dedicated to a single user session. Whenever a connection is not actively executing (for example, is idle, waiting for user input, waiting for I/O, etc.), the worker thread can switch to another connection and do useful work. You can think of worker threads as CPU cores in a multicore system. Even though you only have a few cores, you can easily run hundreds of programs simultaneously because they're not all active at the same time. This highly efficient approach means that Aurora MySQL can handle thousands of concurrent clients with just a handful of worker
+threads.
+* **The thread pool automatically scales itself**. The Aurora MySQL database process continuously monitors its thread pool state and launches new workers or destroys existing ones as needed. This is transparent to the user and doesn’t need any manual configuration.
+
+Server thread pooling reduces the server-side cost of maintaining connections.
+
+However, it doesn’t eliminate the cost of setting up these connections in the first place. Opening and closing connections isn't as simple as sending a single TCP packet. For busy workloads with short-lived connections (for example, KeyValue or Online Transaction Processing), consider using an application-side
+connection pool.
+
+## Links
+- https://d1.awsstatic.com/whitepapers/RDS/amazon-aurora-mysql-database-administrator-handbook.pdf
+
+
 # [DB] Sorting with timestamps in DynamoDB (21 of November 2021)
 
 ISO 8601 is an international standard for representing dates and times. The general-to-specific model that separates it from other standard time layouts makes it extremely easy to specify any time range for queries.
