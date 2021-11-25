@@ -1,6 +1,19 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [AI] Voice Cloning (24 of November 2021)
+An implementation of Transfer Learning from Speaker Verification to Multispeaker Text-To-Speech Synthesis (SV2TTS) [1] with a vocoder that works in real-time. Feel free to check my thesis if you're curious or if you're looking for info I haven't documented. Mostly I would recommend giving a quick look to the figures beyond the introduction.
+
+SV2TTS is a three-stage deep learning framework that allows to create a numerical representation of a voice from a few seconds of audio, and to use it to condition a text-to-speech model trained to generalize to new voices.
+
+## Links
+- [1] - https://arxiv.org/pdf/1806.04558.pdf
+- https://github.com/CorentinJ/Real-Time-Voice-Cloning
+- https://colab.research.google.com/drive/1qF4hjMsFPl-fLFhy3q0q5LLSgksNhIvT?usp=sharing#scrollTo=V0xH8XNEelKI
+- https://www.idrnd.ai/what-is-voice-cloning/
+- https://github.com/misbah4064/Real-Time-Voice-Cloning.git
+
+
 # [DB Modeling data with Amazon DynamoDB (22 of November 2021)
 This guide presents a data modeling process for using DynamoDB that provides functional requirements, performance, and effective costs. The guide is for database engineers who are planning to use DynamoDB as the operational database for their applications that are running on AWS. AWS Professional Services has used the recommended process to help enterprise companies with DynamoDB data modeling for different use cases and workloads.
 
