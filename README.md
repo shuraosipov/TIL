@@ -1,6 +1,23 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# Web 3.0 (25 of November 2021)
+Web 3.0 is the next stage of the web evolution that would make the internet more intelligent or process information with near-human-like intelligence through the power of AI systems that could run smart programs to assist users. 
+
+As Web 3.0 networks will operate through decentralized protocols — the founding blocks of blockchain and cryptocurrency technology — we can expect to see a strong convergence and symbiotic relationship between these three technologies and other fields. They will be interoperable, seamlessly integrated, automated through smart contracts and used to power anything from micro transactions in Africa, censorship-resistant P2P data file storage and sharing with applications like Filecoin, to completely changing every company conduct and operate their business. The current slew of DeFi protocols are just the tip of the iceberg. 
+
+Key Features of Web 3.0:
+* Ubiquity
+* Semantic Web
+* Artificial Intelligence
+* 3D Graphics
+
+
+## Links
+- https://coinmarketcap.com/alexandria/article/what-is-web-3-0
+- https://en.wikipedia.org/wiki/Web3
+
+
 # [AI] Voice Cloning (24 of November 2021)
 An implementation of Transfer Learning from Speaker Verification to Multispeaker Text-To-Speech Synthesis (SV2TTS) [1] with a vocoder that works in real-time. Feel free to check my thesis if you're curious or if you're looking for info I haven't documented. Mostly I would recommend giving a quick look to the figures beyond the introduction.
 
