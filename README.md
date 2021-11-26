@@ -1,6 +1,44 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# NFT (26 of November 2021)
+
+What is a Non-Fungible Token?
+
+A Non-Fungible Token (NFT) is used to identify something or someone in a unique way. This type of Token is perfect to be used on platforms that offer collectible items, access keys, lottery tickets, numbered seats for concerts and sports matches, etc. This special type of Token has amazing possibilities so it deserves a proper Standard, the ERC-721 came to solve that! [1]
+
+We considered use cases of NFTs being owned and transacted by individuals as well as consignment to third party brokers/wallets/auctioneers ("operators"). **NFTs can represent ownership over digital or physical assets.** We considered a diverse universe of assets, and we know you will dream up many more:
+
+* Physical property — houses, unique artwork
+* Virtual collectables — unique pictures of kittens, collectable cards
+* "Negative value" assets — loans, burdens and other responsibilities
+
+In general, all houses are distinct and no two kittens are alike. NFTs are distinguishable and you must track the ownership of each one separately. [2]
+
+All NFTs have a uint256 variable called tokenId, so for any ERC-721 Contract, the pair contract address, uint256 tokenId must be globally unique. That said, a dApp can have a "converter" that uses the tokenId as input and outputs an image of something cool, like zombies, weapons, skills or amazing kitties! [1]
+
+NFTs have some properties that differentiate them from other tokens:
+
+* Uniqueness. Each NFT token is a unique asset and it has a unique set of metadata.
+* Indivisibility. NFT cannot be divided into smaller denominations.
+* Authenticity. Each NFT has an owner and this information is easily verifiable.
+* Non-interoperability. One NFT is not equal to another NFT, you cannot simply exchange them, unlike Bitcoin or Ether, for example.
+
+
+
+## Links 
+- [1] https://ethereum.org/en/developers/docs/standards/tokens/erc-721/
+- [2] https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
+- https://eips.ethereum.org/EIPS/eip-721#simple-summary
+- https://docs.openzeppelin.com/contracts/3.x/erc721
+- https://en.wikipedia.org/wiki/InterPlanetary_File_System
+- https://nonfungible.com/
+- https://ideasoft.io/blog/nft-marketplace-development/#1
+- https://ideasoft.io/blog/what-is-nft-introduction/
+- https://ideasoft.io/blog/what-are-smart-contracts-and-how-do-they-work/
+
+
+
 # Web 3.0 (25 of November 2021)
 Web 3.0 is the next stage of the web evolution that would make the internet more intelligent or process information with near-human-like intelligence through the power of AI systems that could run smart programs to assist users. 
 
