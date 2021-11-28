@@ -1,6 +1,56 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# Virtual Land (27 of November 2021)
+Build my own world. 
+
+1) **Consensus Layer** - Track land ownership and its content
+
+    Maintain a ledger of ownership for land parcels in the virtual world via **Ethereum smart contracts** (non-fungible digital assets LAND).
+    Each **LAND** has unique (x, y) coordinates, an owner, and a reference to the content description file, which encodes what the landowner wants to serve there. 
+
+    LAND is bought by burning **MANA**, a fungible ERC20 token of fixed supply.
+
+    New parcels need to be adjacent to a non-empty parcel.
+
+2) **Content Distribution Layer** - Download assets using a decentralized distribution system
+
+    For each parcel that needs to be rendered, a reference to a file with the description of the parcel’s content is retrieved from the smart contract.
+
+    This decentralized distribution system allows Decentraland to work **without the need of any centralized server infrastructure**. This allows the world to **exist as long as it has users** distributing content, shifting the cost of running the system to the same actors that benefit from it. It also provides Decentraland with **strong censorship-resistance**,
+    eliminating the power of a central authority to change the rules or prevent users from participating.
+
+3) **Real-Time Layer** - Enable users’ world viewers to connect to each other
+
+    Clients will communicate with each other by establishing **peer-to-peer connections** with the help of **servers hosted by landowners or third parties**.
+
+4) **Payment Channels**
+
+    Payment channels are key for Decentraland for two reasons:
+    * In-world purchases
+    * Incentivizing quality of service of content and P2P servers
+
+5) **Identity System** 
+
+    Decentraland can use decentralized identity systems to create a layer of ownership over in-world items. This system must allow users to easily verify the consent of an author by linking public keys and signatures with human-readable names.
+
+    Projects like uPort or the Ethereum Name Service can be used to do this. Social reputation is also needed to facilitate contributions to the author.
+    
+    The ability to incentivize content creation on decentralized economies is evolving quickly, with multiple projects working in the space directly or indirectly. Potential solutions include Mediachain, Curation Markets, Rare Pepes, and more.
+
+
+
+## Links
+- https://decentraland.org/whitepaper.pdf
+- https://docs.decentraland.org/
+- https://en.wikipedia.org/wiki/InterPlanetary_File_System
+- https://filecoin.io/
+- https://datatracker.ietf.org/doc/html/rfc5389
+- https://webrtc.org/
+- https://www.investopedia.com/terms/h/hashed-timelock-contract.asp
+- https://ens.domains/
+
+
 # NFT (26 of November 2021)
 
 What is a Non-Fungible Token?
