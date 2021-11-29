@@ -1,6 +1,26 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# Smart contract (28 of November 2021)
+A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain.
+
+Smart contracts are a type of Ethereum account. This means they have a balance and they can send transactions over the network. However they're not controlled by a user, instead they are deployed to the network and run as programmed. User accounts can then interact with a smart contract by submitting transactions that execute a function defined on the smart contract. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. Smart contracts cannot be deleted by default, and interactions with them are irreversible.
+
+From "Smart Contracts: Building Blocks for Digital Markets" by Nick Szabo:*A smart contract is a set of promises, specified in digital form, including protocols within which the parties perform on these promises.*
+
+
+
+
+## Link
+- https://ethereum.org/en/developers/docs/smart-contracts/
+- https://www.ibm.com/topics/smart-contracts
+- https://en.wikipedia.org/wiki/Smart_contract
+- https://www.investopedia.com/terms/s/smart-contracts.asp
+- https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html
+
+
+
+
 # Virtual Land (27 of November 2021)
 Build my own world. 
 
