@@ -1,6 +1,45 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# InterPlanetary File System (IPFS) (29 of November 2021)
+IPFS is a distributed system for storing and accessing files, websites, applications, and data.
+
+IPFS is a peer-to-peer (p2p) storage network. Content is accessible through peers located anywhere in the world, that might relay information, store it, or do both. IPFS knows how to find what you ask for using its content address rather than its location.
+
+IPFS is based on the ideas of possession and participation, where many people possess each others' files and participate in making them available (instead of ownership and access as in today's World Wide Web).
+
+There are three fundamental principles to understanding IPFS:
+
+- Unique identification via content addressing
+- Content linking via directed acyclic graphs (DAGs)
+- Content discovery via distributed hash tables (DHTs)
+
+
+Traditional Web URL:
+```
+https://en.wikipedia.org/wiki/Aardvark
+```
+
+IPFS page:
+```
+/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Aardvark.html
+```
+
+The address above can be accessed via Web proxy:
+```
+https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Aardvark.html
+```
+
+
+
+## Links
+- https://docs.ipfs.io/concepts/what-is-ipfs/#decentralization
+- https://proto.school/content-addressing
+- https://www.youtube.com/watch?v=Z5zNPwMDYGg&ab_channel=IPFS
+- https://docs.ipfs.io/concepts/how-ipfs-works/#content-addressing
+- https://proto.school/anatomy-of-a-cid
+- https://docs.ipfs.io/concepts/further-reading/academic-papers/#ipfs-content-addressed-versioned-p2p-file-system
+
 # Smart contract (28 of November 2021)
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain.
 
