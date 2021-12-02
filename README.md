@@ -1,6 +1,10 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# AWS re:Invent 2021 (1 of December 2021)
+Records from re:Invent 2021 - https://www.youtube.com/playlist?list=PL2yQDdvlhXf9jfiZENJYPXX8GYUOzQCuT
+
+
 # InterPlanetary File System (IPFS) (29 of November 2021)
 IPFS is a distributed system for storing and accessing files, websites, applications, and data.
 
