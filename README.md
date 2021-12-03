@@ -1,6 +1,38 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [DB] AWS Aurora interesting features (2 of December 2021)
+## Backtracking in Aurora (available for Aurora MySQL only)
+You can backtrack a DB cluster to a specific time, without restoring data from a backup.
+It completes within seconds, even for large databases. 
+And it doesn't require a new DB cluster and rewinds the DB cluster in minutes.
+For more information, see Backtracking an Aurora DB cluster [1].
+
+## Aurora global databases
+An Aurora global database is a single database that spans multiple AWS Regions, enabling low-latency global reads and disaster recovery from any Region-wide outage. It provides built-in fault tolerance for your deployment because the DB instance relies not on a single AWS Region, but upon multiple Regions and different Availability Zones [2].
+
+
+## Aurora machine learning
+Aurora machine learning provides simple, optimized, and secure integration between Aurora and AWS machine learning services without having to build custom integrations or move data around. Aurora exposes ML models as SQL functions, so you don't need to learn new programming languages or tools. Instead, you use standard SQL to build applications that call ML models, pass data to them, and return predictions as query results [3].
+
+## Aurora Serverless v1
+Aurora Serverless v1 is an on-demand, auto-scaling feature designed to be a cost-effective approach to running intermittent or unpredictable workloads on Amazon Aurora. It automatically starts up, shuts down, and scales capacity up or down, as needed by your applications [4].
+
+## Data API for Aurora Serverless
+The Data API for Aurora Serverless provides a web-services interface to an Aurora Serverless cluster. Rather than managing database connections from client applications, you can run SQL commands against an HTTPS endpoint [5].
+
+
+
+
+
+## Links
+- [1] https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
+- [2] https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html
+- [3] https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-ml.html
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraFeaturesRegionsDBEngines.grids.html
+- [4] https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
+- [5] https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html
+
 # AWS re:Invent 2021 (1 of December 2021)
 Records from re:Invent 2021 - https://www.youtube.com/playlist?list=PL2yQDdvlhXf9jfiZENJYPXX8GYUOzQCuT
 
