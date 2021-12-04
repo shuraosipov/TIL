@@ -1,8 +1,8 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
-# [DB] AWS Certified Database - Specialty (3 of December 2021)
-After two months of studying, completing the A CloudGuru and AWS exam readiness courses, reading and re-reading all recommended whitepapers and FAQs, and reviewing all questions on the Whizlabs and the Examtopics sites, I aced the AWS Certified Database - Specialty exam today. Although no exact score is available yet, AWS usually provides them within three business days.
+# [DB] The AWS Certified Database - Specialty (DBS-C01) (3 of December 2021)
+After two months of studying, completing the A CloudGuru and AWS exam readiness courses, reading and re-reading all recommended whitepapers and FAQs, and reviewing all questions on the Whizlabs and the Examtopics sites, I aced the AWS Certified Database - Specialty exam today, with 849 points scored.
 
 I'm not a DBA or DB expert per se; however, I have been working with different database technologies in AWS for quite a while, so I was able to get some hands-on skills and gain valuable experience that helped me pass the exam.
 
