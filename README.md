@@ -1,6 +1,24 @@
 # TIL
 Today I Learned - a repository of things I learned today, with links and examples.
 
+# [DB] AWS Certified Database - Specialty (3 of December 2021)
+After two months of studying, completing the A CloudGuru and AWS exam readiness courses, reading and re-reading all recommended whitepapers and FAQs, and reviewing all questions on the Whizlabs and the Examtopics sites, I aced the AWS Certified Database - Specialty exam today. Although no exact score is available yet, AWS usually provides them within three business days.
+
+I'm not a DBA or DB expert per se; however, I have been working with different database technologies in AWS for quite a while, so I was able to get some hands-on skills and gain valuable experience that helped me pass the exam.
+
+RDS, Aurora, and DynamoDB are the key services for the exam, and you need to understand the pricing model, migration strategies, integration capabilities, recovery options, DR strategies, and use cases most suited for each of these technologies.
+
+I was surprised by the number of questions related to the SQL Server on RDS. In addition, there were a few questions related to CloudFormation and secret injections.
+
+Most of the questions could be answered by using common sense (assuming you are familiar with the AWS security model, how different services interact with each other, and completed all the prerequisites).
+
+The huge accent was made on performance, availability, migration options, and fault tolerance. 
+
+This exam is focused on a database as a service concept and different database offerings by AWS. You do not need to be a database developer or administrator to pass it, while you still need to have a basic knowledge of SQL (know what is SELECT, or JOIN) and familiarity with DDL, DML, DCL (DROP, ALTER TABLE, GRANT, etc.).
+
+As usual, I learned a lot while preparing for the exam. And I hope that In the future, AWS will make their exam more hands-on (like Red Hat), so you would need to be able to apply everything you learned in practice instead of just simply answering test questions. 
+
+
 # [DB] AWS Aurora interesting features (2 of December 2021)
 ## Backtracking in Aurora (available for Aurora MySQL only)
 You can backtrack a DB cluster to a specific time, without restoring data from a backup.
