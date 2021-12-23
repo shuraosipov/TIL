@@ -2,7 +2,7 @@
 Today I Learned - a repository of things I learned today, with links and examples.
 
 # 2021 Year In Review (21 of December)
-Here is a recap of 2021 -
+A recap of 2021 - 
 https://docs.google.com/presentation/d/1y3p7SeabZwq01FSox7hL11qt3U0v5JuJUVUDAAsH1dY/edit?usp=sharing
 
 
