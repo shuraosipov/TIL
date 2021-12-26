@@ -1,5 +1,5 @@
 # TIL
-Today I Learned - a repository of things I learned today, with links and examples.
+Today I Learned - a repository of things I learned today.
 
 # 2021 Year In Review (21 of December)
 A recap of 2021 - 
