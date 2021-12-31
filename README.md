@@ -1,5 +1,13 @@
 # TIL
 Today I Learned - a repository of things I learned today.
+# Happy New 011111100110 Year!
+```
+def DecimalToBinary(num):
+    if num >= 1:
+        DecimalToBinary(num // 2)
+    print(num % 2, end = '')
+```
+
 
 # 2021 Year In Review (21 of December)
 A recap of 2021 - 
