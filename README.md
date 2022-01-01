@@ -1,11 +1,13 @@
 # TIL
 Today I Learned - a repository of things I learned today.
-# Happy New 011111100110 Year!
+# Happy New 11111100110 Year!
 ```
 def DecimalToBinary(num):
-    if num >= 1:
-        DecimalToBinary(num // 2)
-    print(num % 2, end = '')
+    return "{0:b}".format(num)
+
+print(f"Happy New {DecimalToBinary(2022)} Year!")
+
+Happy New 11111100110 Year!
 ```
 
 
